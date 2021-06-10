@@ -5,6 +5,7 @@ const router = express.Router();
 const group_controller = require("../controller/groups.controller");
 const authenticateJWT = require("../helper/auth");
 
+// add all groups route set
 router.route("/getGroups/:bookingId")
     .get(authenticateJWT, group_controller.getGroup)
 router.route("/getGroups")

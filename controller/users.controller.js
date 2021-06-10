@@ -181,7 +181,6 @@ exports.getUser = (req, res) => {
         });
       }
     }).catch(err => {
-      console.log("err: ", err);
       return res.status(500).send({
         status: false,
         message: "Error retrieving User with email=" + email
@@ -311,7 +310,6 @@ exports.updateUser = (req, res) => {
         delete value.Email;
         const file = req.file;
         fs.unlinkSync(file.path)
-        // console.log("....: ", path.join(__dirname, '../helper', file.originalname));
         Users.update(value, { where: { Email: email } }).then((num, err) => {
           if (num == 1) {
             return res.status(200).send({

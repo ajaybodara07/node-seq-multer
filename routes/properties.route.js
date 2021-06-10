@@ -5,6 +5,7 @@ const router = express.Router();
 const propertie_controller = require("../controller/properties.controller");
 const authenticateJWT = require("../helper/auth");
 
+// add all properties route set
 router.route("/cronJob")
   .get(authenticateJWT, propertie_controller.cronJob)
 

@@ -5,6 +5,7 @@ const router = express.Router();
 const notification_controller = require("../controller/notifications.controller");
 const authenticateJWT = require("../helper/auth");
 
+// add all notifications route set
 router.route("/getSMSAndPushNotifications")
     .get(authenticateJWT, notification_controller.getSMSAndPushNotifications)
 router.route("/appRefreshNotifications/:propertyId/:userId")

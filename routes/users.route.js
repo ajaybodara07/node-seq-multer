@@ -6,14 +6,13 @@ const user_controller = require("../controller/users.controller");
 const { singleUpload } = require("../helper/multer");
 const authenticateJWT = require("../helper/auth");
 
+// add all users route set
 router.route("/user")
     .get(authenticateJWT, user_controller.getAllUsers)
     .post(user_controller.registorUser)
     .put([authenticateJWT, singleUpload()], user_controller.updateUser);
 router.route("/user/login")
     .post(user_controller.loginUser);
-// router.route("/user/forgot")
-//     .post(user_controller.forgotUser);
 router.route("/user/:email")
     .get(user_controller.getUser)
     .delete(authenticateJWT, user_controller.deleteUser)

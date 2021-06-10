@@ -5,6 +5,7 @@ const router = express.Router();
 const booking_controller = require("../controller/bookings.controller");
 const authenticateJWT = require("../helper/auth");
 
+// add all booking route set
 router.route("/upcomingStay/:userId")
   .get(authenticateJWT, booking_controller.getUpcomingStay)
 router.route("/upcomingStayFeed/:propertyId")
